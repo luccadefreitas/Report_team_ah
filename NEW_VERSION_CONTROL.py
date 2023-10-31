@@ -4,6 +4,11 @@ def password_encoder(password):
 
     return encoded_password
 
+def decoder(password):
+    string = ''
+    for i in range(len(password)):
+        string = string + str(int(password[i]) - 3)
+    return string
 
 original_password = ''
 encoded_password = ''
@@ -22,6 +27,7 @@ if __name__ == '__main__':
             encoded_password = password_encoder(original_password)
             print("Your password has been encoded and stored!\n")
         elif option == 2:
+            original_password = decoder(encoded_password)
             print(f"The encoded password is {encoded_password}, and the original password is {original_password}")
         elif option == 3:
             break
